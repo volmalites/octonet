@@ -9,18 +9,10 @@ const SitemapPlugin = require('sitemap-webpack-plugin').default;
 const RobotstxtPlugin = require("robotstxt-webpack-plugin");
 
 const paths = [
-  {
-    path: '/'
-  },
-  {
-    path: '/about'
-  },
-  {
-    path: '/services'
-  },
-  {
-    path: '/contact'
-  }
+  '/',
+  '/about',
+  '/services',
+  '/contact'
 ];
 
 const options = {
