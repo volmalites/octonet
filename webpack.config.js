@@ -5,6 +5,28 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const autoprefixer = require("autoprefixer");
 const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
+const SitemapPlugin = require('sitemap-webpack-plugin').default;
+const RobotstxtPlugin = require("robotstxt-webpack-plugin");
+
+const paths = [
+  {
+    path: '/'
+  },
+  {
+    path: '/about'
+  },
+  {
+    path: '/services'
+  },
+  {
+    path: '/contact'
+  }
+];
+
+const options = {
+  sitemap: "https://octonet.co.za/sitemap.xml",
+  host: "https://octonet.co.za",
+};
 
 module.exports = {
   entry: {
@@ -88,6 +110,11 @@ module.exports = {
         },
       ],
     }),
+    new SitemapPlugin({
+      base: 'https://octonet.co.za',
+      paths
+    }),
+    new RobotstxtPlugin(options)
   ],
   resolve: {
     alias: {
@@ -96,7 +123,7 @@ module.exports = {
     extensions: ["*", ".js", ".vue", ".json"],
   },
   optimization: {
-    moduleIds: "hashed",
+    moduleIds: "deterministic",
     runtimeChunk: "single",
     splitChunks: {
       cacheGroups: {
