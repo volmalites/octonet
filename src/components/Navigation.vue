@@ -42,6 +42,9 @@ export default {
   methods: {
     navBar: (nav) => {
       if (window.pageYOffset >= 300) {
+        if (window.innerWidth <= 800) { //Weird fix for jumping bug on mobile view
+          document.body.style.marginBottom = '50px'
+        }
         nav.style.position = 'fixed'
         nav.style.top = 0
         nav.style.left = 0
@@ -51,6 +54,9 @@ export default {
         nav.style.padding = '20px 0'
         nav.style.margin = '0'
       } else {
+        if (window.innerWidth <= 800) { //Weird fix for jumping bug on mobile view
+          document.body.style.marginBottom = '0'
+        }
         nav.style.position = 'relative'
         nav.style.backgroundColor = ''
         nav.style.padding = '10px 0'
