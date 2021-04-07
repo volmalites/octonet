@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="nav-container">
     <nav id="nav">
       <div id="menu">
         <router-link class="link" v-for="routes in links" v-bind:key="routes.id" :to="`${routes.page}`">{{routes.text}}</router-link>
@@ -42,9 +42,6 @@ export default {
   methods: {
     navBar: (nav) => {
       if (window.pageYOffset >= 300) {
-        if (window.innerWidth <= 800) { //Weird fix for jumping bug on mobile view
-          document.body.style.marginBottom = '50px'
-        }
         nav.style.position = 'fixed'
         nav.style.top = 0
         nav.style.left = 0
@@ -54,9 +51,6 @@ export default {
         nav.style.padding = '20px 0'
         nav.style.margin = '0'
       } else {
-        if (window.innerWidth <= 800) { //Weird fix for jumping bug on mobile view
-          document.body.style.marginBottom = '0'
-        }
         nav.style.position = 'relative'
         nav.style.backgroundColor = ''
         nav.style.padding = '10px 0'
@@ -76,10 +70,12 @@ export default {
     },
     navOnSize: function () {
       if (window.innerWidth <= 800) {
+        document.getElementById('nav-container').style.height = '110px'
         this.toggleState = false
         this.menu.style.display = 'none'
         this.toggle.style.display = 'block'
       } else {
+        document.getElementById('nav-container').style.height = '60px'
         this.toggleState = true
         this.toggle.style.display = 'none'
         this.menu.style.display = 'block'
@@ -149,5 +145,11 @@ nav a:not(#toggle):hover, nav a:not(#toggle):focus {
 .router-link-exact-active {
   background-color: rgba(51, 255, 255, 0.65);
   color: black;
+}
+
+#nav-container {
+  display: table;
+  height: 60px;
+  width: 100%;
 }
 </style>
