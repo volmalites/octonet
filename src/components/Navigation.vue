@@ -1,7 +1,10 @@
 <template>
   <div>
     <nav id="nav">
-      <router-link v-for="routes in links" v-bind:key="routes.id" :to="`${routes.page}`">{{routes.text}}</router-link>
+      <div id="menu">
+        <router-link v-for="routes in links" v-bind:key="routes.id" :to="`${routes.page}`">{{routes.text}}</router-link>
+      </div>
+      <a id="toggle"><vue-fontawesome class="icon" icon="chevron-circle-down" size="2.5" color="white"></vue-fontawesome></a>
     </nav>
   </div>
 </template>
@@ -32,7 +35,8 @@ export default {
           text: 'Contact Us',
           page: '/contact'
         }
-      ]
+      ],
+      toggleState: false
     }
   },
   methods: {
@@ -52,14 +56,52 @@ export default {
         nav.style.padding = '10px 0'
         nav.style.margin = '10px 0'
       }
+    },
+    toggleNav: function () {
+      if (this.toggleState === true) {
+        this.toggleState = false
+        this.menu.style.display = 'none'
+        console.log(this.toggle);
+        document.getElementById('toggle').firstElementChild.classList.replace('fa-chevron-circle-up', 'fa-chevron-circle-down')
+      } else {
+        this.toggleState = true
+        this.menu.style.display = 'block'
+        console.log(this.toggle);
+        document.getElementById('toggle').firstElementChild.classList.replace('fa-chevron-circle-down', 'fa-chevron-circle-up')
+      }
+    },
+    navOnSize: function () {
+      if (window.innerWidth <= 800) {
+        this.toggleState = false
+        this.menu.style.display = 'none'
+        this.toggle.style.display = 'block'
+      } else {
+        this.toggleState = true
+        this.toggle.style.display = 'none'
+        this.menu.style.display = 'block'
+      }
     }
   },
   mounted () {
-    const nav = document.getElementById('nav')
+    this.nav = document.getElementById('nav')
+    this.menu = document.getElementById('menu')
+    this.toggle = document.getElementById('toggle')
+
+    this.toggle.style.display = 'none'
     this.navBar(nav)
+    this.navOnSize()
 
     document.addEventListener('scroll', () => {
       this.navBar(nav)
+      this.navOnSize()
+    })
+
+    window.addEventListener('resize', () => {
+      this.navOnSize()
+    })
+
+    toggle.addEventListener('click', () => {
+      this.toggleNav()
     })
   }
 }
@@ -84,8 +126,16 @@ nav a {
   transition: transform .2s;
 }
 
-nav a:hover {
-  transform: scale(1.5);
+@media screen and (max-width: 800px) {
+  nav a {
+    display: block;
+    border-radius: 0;
+    margin: 5px 0;
+  }
+}
+
+nav a:not(#toggle):hover, nav a:not(#toggle):focus {
+  transform: scaleY(1.2);
 }
 
 .router-link-exact-active {
