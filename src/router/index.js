@@ -99,6 +99,24 @@ export default new Router({
           }
         ]
       }
+    },
+    {
+      path: '/chat',
+      name: 'Chat With Us',
+      component: () => import(/* webpackChunkName: "contact" */ "../components/Chat.vue"),
+      meta: {
+        title: 'Chat With Us | Contact Details | Octonet',
+        htmlAttrs: {
+          lang: 'en',
+          amp: true
+        },
+        metaTags: [
+          {
+            name: 'description',
+            content: 'Chat with Octonet directly'
+          }
+        ]
+      }
     }
   ]
 })
