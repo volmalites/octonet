@@ -2,7 +2,7 @@
   <div>
     <nav id="nav">
       <div id="menu">
-        <router-link v-for="routes in links" v-bind:key="routes.id" :to="`${routes.page}`">{{routes.text}}</router-link>
+        <router-link class="link" v-for="routes in links" v-bind:key="routes.id" :to="`${routes.page}`">{{routes.text}}</router-link>
       </div>
       <a id="toggle"><vue-fontawesome class="icon" icon="chevron-circle-down" size="2.5" color="white"></vue-fontawesome></a>
     </nav>
@@ -61,12 +61,10 @@ export default {
       if (this.toggleState === true) {
         this.toggleState = false
         this.menu.style.display = 'none'
-        console.log(this.toggle);
         document.getElementById('toggle').firstElementChild.classList.replace('fa-chevron-circle-up', 'fa-chevron-circle-down')
       } else {
         this.toggleState = true
         this.menu.style.display = 'block'
-        console.log(this.toggle);
         document.getElementById('toggle').firstElementChild.classList.replace('fa-chevron-circle-down', 'fa-chevron-circle-up')
       }
     },
@@ -100,8 +98,10 @@ export default {
       this.navOnSize()
     })
 
-    toggle.addEventListener('click', () => {
-      this.toggleNav()
+    nav.addEventListener('click', e => {
+      if (e.target.tagName === 'A' || e.target.classList.contains('icon')) {
+        this.toggleNav()
+      }
     })
   }
 }
