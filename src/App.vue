@@ -27,19 +27,7 @@ export default {
   data () {
     return {
       isLoading: false,
-      fullPage: true,
-      isConnected: false
-    }
-  },
-  sockets: {
-    connect () {
-      this.isConnected = true
-    },
-    disconnect () {
-      this.isConnected = false
-    },
-    messageChannel (data) {
-      this.socketMessage = data
+      fullPage: true
     }
   },
   components: {
@@ -52,10 +40,6 @@ export default {
   },
   mounted () {
     this.isLoading = false
-
-    this.$socket.client.on('log', (result) => {
-      console.log(result)
-    })
   }
 }
 </script>
