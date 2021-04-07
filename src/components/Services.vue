@@ -1,6 +1,7 @@
 <template>
     <div id="grid">
         <section>
+            <vue-fontawesome class="icon" icon="cogs" size="12" color="white"></vue-fontawesome>
             <h1 class="line">Development of digital systems, intranets and/or extranets</h1>
             <h2 class="line">Intranet development</h2>
             <h3>An intranet is a computer network for sharing information, collaboration tools, operational systems, and other computing services within an organization, usually to the exclusion of access by outsiders.</h3>
@@ -24,6 +25,7 @@
             <p>Should you prefer a different means of contact, click here for a list of alternative contact methods.</p>
         </section>
         <section>
+            <vue-fontawesome class="icon" icon="shield" size="12" color="white"></vue-fontawesome>
             <h1 class="line">Licensing, privacy and digital security</h1>
             <h2 class="line">Licensing</h2>
             <p>Any applications we develop remains unlicensed and copyright is contractually given to our client. Should any of our clients wish to license their applications for the purpose of leasing, we will be happy to assist in this regard.</p>
@@ -42,6 +44,7 @@
             <p>Our applications are developed in order to delegate proper user rights, levels of access and digital security that prevents malicious exploits. We also utilise well known technologies of encryption and  networking methods to further solidify the security of our applications.</p>
         </section>
         <section>
+            <vue-fontawesome class="icon" icon="universal-access" size="12" color="white"></vue-fontawesome>
             <h1 class="line">Accessibility</h1>
             <p class="line">Our applications and applications administered by us will be amended and updated according to user feedback. This will also be done to make system applications more accessible and easy to use by users with disabilities.</p>
             <p>Following the The World Wide Web Consortium standards on Web Content Accessibility Guidelines (WCAG) 2.1 we strive to at minimum achieve level AA standards and work our way up to AAA standards from there.</p>
@@ -57,5 +60,8 @@ export default {
 </script>
 
 <style scoped>
-
+    .icon {
+        display: table;
+        margin: 0 auto;
+    }
 </style>
