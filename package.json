@@ -14,13 +14,17 @@
   "dependencies": {
     "core-js": "^3.10.0",
     "reset-css": "^5.0.1",
+    "socket.io": "^4.0.1",
+    "socket.io-client": "^4.0.1",
     "three": "^0.127.0",
     "vue": "^2.6.12",
     "vue-loading-overlay": "^3.4.2",
     "vue-meta": "^2.4.0",
     "vue-page-transition": "^0.2.2",
     "vue-particles": "^1.0.9",
-    "vue-router": "^3.5.1"
+    "vue-router": "^3.5.1",
+    "vue-socket.io": "^3.0.10",
+    "vue-socket.io-extended": "^4.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.13.14",

@@ -5,8 +5,13 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import VueParticles from 'vue-particles'
+import VueSocketIOExt from 'vue-socket.io-extended'
+import io from 'socket.io-client'
+
+const socket = io.connect('wss://app.octonet.co.za')
 
 Vue.use(VueParticles)
+Vue.use(VueSocketIOExt, socket)
 
 router.beforeEach((to, from, next) => {
   const nearestWithTitle = to.matched.slice().reverse().find(r => r.meta && r.meta.title)
