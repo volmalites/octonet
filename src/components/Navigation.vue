@@ -99,7 +99,9 @@ export default {
     })
 
     nav.addEventListener('click', e => {
-      if (e.target.tagName === 'A' || e.target.classList.contains('icon')) {
+      if (e.target.classList.contains('icon')) {
+        this.toggleNav()
+      } else if (e.target.tagName === 'A' && !e.target.classList.contains('icon') && window.innerWidth <= 800) {
         this.toggleNav()
       }
     })
