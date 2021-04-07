@@ -84,6 +84,9 @@ export default {
       text.innerText = 'WELCOME TO OUR WEBSITE'
       aquaCard.appendChild(text)
       text = document.createElement('h2')
+      text.innerText = 'This site is still in development, please be patient while more features are implemented'
+      aquaCard.appendChild(text)
+      text = document.createElement('h2')
       text.innerText = 'We develop tailor made digital solutions for any need only short of the imagination'
       aquaCard.appendChild(text)
 
