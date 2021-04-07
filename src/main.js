@@ -7,11 +7,13 @@ import router from './router'
 import VueParticles from 'vue-particles'
 import VueSocketIOExt from 'vue-socket.io-extended'
 import io from 'socket.io-client'
+import "font-awesome/css/font-awesome.min.css"
 
 const socket = io.connect('wss://app.octonet.co.za')
 
 Vue.use(VueParticles)
 Vue.use(VueSocketIOExt, socket)
+Vue.component('VueFontawesome', require('vue-fontawesome-icon/VueFontawesome.vue').default);
 
 router.beforeEach((to, from, next) => {
   const nearestWithTitle = to.matched.slice().reverse().find(r => r.meta && r.meta.title)
