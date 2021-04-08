@@ -7,7 +7,7 @@
             <a id="chat" alt="chat" href="/chat" title="Chat With Octonet"><vue-fontawesome class="chat-icon" icon="comments" size="9" color="white"></vue-fontawesome></a>
             <address>
                 <span class="block tel">
-                    <a alt="+27719335371" href="tel:+27719335371" title="+27719335371"><vue-fontawesome class="icon" icon="phone" size="2" color="white"></vue-fontawesome>+27719335371</a>
+                    <a alt="+27877001597" href="tel:+27877001597" title="+27877001597"><vue-fontawesome class="icon" icon="phone" size="2" color="white"></vue-fontawesome>+27 (0)87 700 1597</a>
                 </span>
                 <span class="block email">
                     <a alt="office@octonet.co.za" href="mailto:office@octonet.co.za" title="office@octonet.co.za"><vue-fontawesome class="icon" icon="envelope" size="2" color="white"></vue-fontawesome>office@octonet.co.za</a>
