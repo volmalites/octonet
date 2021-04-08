@@ -117,6 +117,14 @@ export default new Router({
           }
         ]
       }
+    },
+    {
+      path: '/user',
+      name: 'User Log In',
+      component: () => import(/* webpackChunkName: "contact" */ "../components/User.vue"),
+      meta: {
+        title: 'Octonet | User Log In'
+      }
     }
   ]
 })

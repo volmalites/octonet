@@ -7,6 +7,7 @@ const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
 const SitemapPlugin = require('sitemap-webpack-plugin').default;
 const RobotstxtPlugin = require("robotstxt-webpack-plugin");
+const PrerenderSPAPlugin = require('prerender-spa-plugin-next');
 
 const paths = [
   '/',
@@ -106,7 +107,11 @@ module.exports = {
       base: 'https://octonet.co.za',
       paths
     }),
-    new RobotstxtPlugin(options)
+    new RobotstxtPlugin(options),
+    new PrerenderSPAPlugin({
+      indexPath: './public/index.html',
+      routes: paths,
+    })
   ],
   resolve: {
     alias: {
