@@ -22,13 +22,13 @@ export default {
         },
         {
           id: 1,
-          text: 'About Us',
-          page: '/about'
+          text: 'Services',
+          page: '/services'
         },
         {
           id: 2,
-          text: 'Services',
-          page: '/services'
+          text: 'About Us',
+          page: '/about'
         },
         {
           id: 3,
