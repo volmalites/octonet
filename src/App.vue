@@ -92,7 +92,7 @@ body {
 @media screen and (min-width: 600px) {
   #grid {
     grid-gap: 10px;
-    padding: 0px 10px 10px;
+    padding: 0px 10px;
   }
 }
 
