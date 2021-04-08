@@ -26,6 +26,7 @@ module.exports = {
     main: "./src/main.js",
   },
   output: {
+    publicPath: '/',
     filename: "[name].[contenthash:8].js",
     path: path.resolve(__dirname, "dist"),
     chunkFilename: "[name].[contenthash:8].js",
@@ -109,7 +110,7 @@ module.exports = {
     }),
     new RobotstxtPlugin(options),
     new PrerenderSPAPlugin({
-      indexPath: './public/index.html',
+      indexPath: 'index.html',
       routes: paths,
     })
   ],

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <footer>&#169; Octonet, all rights reserved. By using this website you agree to our <a href="privacyPolicy">Privacy Policy</a></footer>
+        <footer>&#169; Octonet, all rights reserved. By using this website you agree to our <a href="/privacyPolicy">Privacy Policy</a></footer>
     </div>
 </template>
 
