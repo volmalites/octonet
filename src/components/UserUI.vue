@@ -220,11 +220,6 @@
     sockets: {
       connect () {
         this.isConnected = true
-        this.$socket.client.emit('updateSocket', {socketId: this.$socket.client.id, sessionId: this.identifier.sessionId}, result => {
-          if (result) {
-            console.log('Socket updated succesfully');
-          }
-        });
       },
       disconnect () {
         this.isConnected = false
@@ -248,6 +243,12 @@
       }
     },
     mounted () {
+      this.$socket.client.emit('updateSocket', {socketId: this.$socket.client.id, sessionId: this.identifier.sessionId}, result => {
+        if (result) {
+          console.log('Socket updated succesfully');
+        }
+      });
+      
       this.$socket.client.on("connect_error", (err) => {
         console.log(err);
       });
