@@ -19,7 +19,7 @@
       </div>
     </div>
     <div v-show="!chatComponent">
-      <div class="toggle-chat" @click="toContactPage()">
+      <div class="toggle-chat-none" @click="toContactPage()">
         <span>No one online to chat to.</span><br><span>Click here for more info on chat operation hours</span>
       </div>
     </div>
@@ -152,7 +152,7 @@ export default {
 </script>
 
 <style>
-  .toggle-chat {
+  .toggle-chat, .toggle-chat-none {
     box-shadow: 0 0 3px 1px black;
     padding: 5px 50px;
     color: black;
@@ -165,9 +165,15 @@ export default {
     transition: all ease-in-out 1s;
   }
 
-  .toggle-chat:hover {
+  .toggle-chat:hover, .toggle-chat-none:hover {
     cursor: pointer;
     padding-bottom: 15px;
+  }
+  
+  @media screen and (max-width: 800px) {
+    .toggle-chat-none {
+      width: 100%;
+    }
   }
 
   #up {
