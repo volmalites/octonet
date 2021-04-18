@@ -50,7 +50,7 @@
                 <p class="line">Our applications and applications administered by us will be amended and updated according to user feedback. This will also be done to make system applications more accessible and easy to use by users with disabilities.</p>
                 <p>Following the The World Wide Web Consortium standards on Web Content Accessibility Guidelines (WCAG) 2.1 we strive to at minimum achieve level AA standards and work our way up to AAA standards from there.</p>
                 <p>This ensures that our applications are easy to understand and extra user friendly. Accessibility is something that we take very seriously, this is why we pride ourselves on the use of a user feedback system which helps us amend and update our applications according to user requirements.</p>
-                <p>We take great pride in the simplicity of our applications. This simplicity is achieved with great complexity under the hood, we believe that by continually striving to satisfy our clients needs anything becomes possible.</p>
+                <p>We take great pride in the simplicity of our applications. This simplicity is achieved with great complexity under the hood, we take great pride in making our applications both easy to use and operable without much (if any) prior training.</p>
                 <h3>Tailor made to satisfy your needs</h3>
             </section>
         </div>
