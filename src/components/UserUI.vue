@@ -9,6 +9,7 @@
         <button id="manageTickets" @click="open($event)">Manage Tickets</button>
         <button id="issues" @click="open($event)">Reported Issues</button>
         <button id="clients" @click="open($event)">Clients</button>
+        <button id="clients" @click="logOut()">Log Out</button>
       </div>
     </div>
     <section>
@@ -121,6 +122,11 @@
       }
     },
     methods: {
+      logOut() {
+        this.$socket.client.disconnect();
+        this.$session.destroy();
+        this.$router.push('/');
+      },
       open(event) {
         Object.keys(this.tools).forEach(v => this.tools[v] = false);
         this.tools[event.currentTarget.id] = true;
