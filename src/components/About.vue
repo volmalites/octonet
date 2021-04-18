@@ -20,14 +20,20 @@
       </section>
     </div>
     <section>
-      <h1>The greatest gift you have is that of your own self-transformation</h1>
+      <h2>The greatest gift you have is that of your own self-transformation</h2>
     </section>
+    <WebChat />
   </div>
 </template>
 
 <script>
+import WebChat from './WebChat'
+
 export default {
-  name: 'About'
+  name: 'About',
+  components: {
+    'WebChat': WebChat
+  }
 }
 </script>
 

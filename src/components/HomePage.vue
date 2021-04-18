@@ -3,6 +3,7 @@
     <section id="container">
       <loading :opacity=1 background-color="black" :height=255 :width=255 color="aquamarine" :active.sync="isLoading" :can-cancel="false" :is-full-page="fullPage"></loading>
     </section>
+    <WebChat />
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 import * as Three from 'three'
 import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/vue-loading.css'
+import WebChat from './WebChat'
 
 export default {
   name: 'ThreeTest',
@@ -24,7 +26,8 @@ export default {
     }
   },
   components: {
-    Loading
+    Loading,
+    'WebChat': WebChat
   },
   methods: {
     init: function () {

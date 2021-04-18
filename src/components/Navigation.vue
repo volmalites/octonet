@@ -34,6 +34,11 @@ export default {
           id: 3,
           text: 'Contact Us',
           page: '/contact'
+        },
+        {
+          id: 4,
+          text: 'Log In / Sign Up',
+          page: '/user'
         }
       ],
       toggleState: false

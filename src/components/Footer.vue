@@ -7,7 +7,7 @@
 <style scoped>
 footer {
     background-color: black;
-    padding: 3px 0;
+    padding: 3px 0 77px;
     text-align: center;
 }
 </style>

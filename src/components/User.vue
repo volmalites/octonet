@@ -1,37 +1,43 @@
 <template>
-  <div id="container">
-    <div id="log-in">
-      <form v-on:submit.prevent="onSubmit">
-        <h1>OCTONET</h1>
-        <div id="inputs">
-          <label for="email"><vue-fontawesome class="icon" icon="envelope" size="2" color="black"></vue-fontawesome></label>
-          <input type="text" :disabled="email" name="email" v-model="input.email" id="email" class="no-outline" v-on:keyup.enter="login()">
-          <span class="text">
-            <span v-show="!email">Email</span>
-            <vue-fontawesome v-show="email" class="icon" icon="check-circle-o" size="2" color="green"></vue-fontawesome>
-          </span>
-          <label for="password"><vue-fontawesome class="icon" icon="unlock-alt" size="2" color="black"></vue-fontawesome></label>
-          <input type="password" :disabled="password" name="password" v-model="input.password" id="password" class="no-outline" v-on:keyup.enter="login()">
-          <span class="text">
-            <span v-show="!password">Password</span>
-            <vue-fontawesome v-show="password" class="icon" icon="check-circle-o" size="2" color="green"></vue-fontawesome>
-          </span>
-        </div>
-        <div id="message">{{message}}</div>
-        <button id="btn" type="button" :disabled="disabledBtn" v-on:click="login()"><span class="noselect">Log In</span><div id="circle"></div></button>
-      </form>
+  <div>
+    <div id="container">
+      <div id="log-in">
+        <form v-on:submit.prevent="onSubmit">
+          <h1>OCTONET</h1>
+          <div id="inputs">
+            <label for="email"><vue-fontawesome class="icon" icon="envelope" size="2" color="black"></vue-fontawesome></label>
+            <input type="text" :disabled="email" name="email" v-model="input.email" id="email" class="no-outline" v-on:keyup.enter="login()">
+            <span class="text">
+              <span v-show="!email">Email</span>
+              <vue-fontawesome v-show="email" class="icon" icon="check-circle-o" size="2" color="green"></vue-fontawesome>
+            </span>
+            <label for="password"><vue-fontawesome class="icon" icon="unlock-alt" size="2" color="black"></vue-fontawesome></label>
+            <input type="password" :disabled="password" name="password" v-model="input.password" id="password" class="no-outline" v-on:keyup.enter="login()">
+            <span class="text">
+              <span v-show="!password">Password</span>
+              <vue-fontawesome v-show="password" class="icon" icon="check-circle-o" size="2" color="green"></vue-fontawesome>
+            </span>
+          </div>
+          <div id="message">{{message}}</div>
+          <button id="btn" type="button" :disabled="disabledBtn" v-on:click="login()"><span class="noselect">Log In</span><div id="circle"></div></button>
+        </form>
+      </div>
     </div>
+    <WebChat />
   </div>
 </template>
 
 <script>
+import WebChat from "./WebChat";
+
 export default {
   name: 'Login',
   data() {
     return {
       input: {
         email: '',
-        password: ''
+        password: '',
+        socketId: ''
       },
       isConnected: false,
       message: '',
@@ -39,6 +45,9 @@ export default {
       email: false,
       password: false
     }
+  },
+  components: {
+    WebChat: WebChat,
   },
   sockets: {
     connect () {
@@ -56,25 +65,50 @@ export default {
       this.validating = true;
       this.message = '';
       this.disabledBtn = true;
+      this.input.socketId = this.$socket.client.id;
       this.$socket.client.emit('login', this.input, (result) => {
         result.forEach(element => {
           this[element.target] = !element.error;
           document.getElementById(element.target).focus();
           this.message = element.errorMsg;
         });
-        if (this.email && this.password) {
-          console.log('LOGGING YOU IN');
-        } else {
+        if (!this.email && !this.password) {
           this.disabledBtn = false;
         }
       });
       this.validating = false;
     }
   },
+  beforeCreate () {
+    if (this.$session.exists()) {
+      if (this.$session.get('id')) {
+        this.$router.push('user' + this.$session.get('id'));
+      }
+    }
+  },
   mounted () {
+    if (!this.$session.exists()) {
+      this.$session.start();
+    }
+    
     this.$socket.client.on('log', (result) => {
       console.log(result)
-    })
+    });
+
+    this.$socket.client.on('setSession', (id, call) => {
+      this.$session.set('id', id)
+      call({
+        email: this.input.email,
+        id: id,
+        sessionId: this.$session.id()
+      })
+    });
+
+    this.$socket.client.on('redirectLogin', (id) => {
+      if (id == this.$session.get('id')) {
+        this.$router.push('user' + this.$session.get('id'));
+      }
+    });
 
     document.getElementById('email').focus()
   }
