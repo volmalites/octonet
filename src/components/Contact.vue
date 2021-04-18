@@ -44,6 +44,17 @@
             <span>Pretoria</span>
             <span>0084</span>
           </span>
+          <span class="block chat">
+            <span id="chat"><vue-fontawesome
+                class="icon"
+                icon="comments"
+                size="5"
+                color="white"
+              ></vue-fontawesome>
+            <p>Web Chat Hours</p>
+            <p>Weekdays: {{this.weekDays}}</p>
+            <p>Note: the time shown above is adapted to your current time zone</p></span>
+          </span>
         </address>
       </section>
     </div>
@@ -59,6 +70,11 @@ export default {
   components: {
     WebChat: WebChat,
   },
+  data() {
+    return {
+      weekDays: `From ${new Date(Date.UTC(0, 0, 0, 5, 30, 0)).toLocaleTimeString()} To ${new Date(Date.UTC(0, 0, 0, 15, 30, 0)).toLocaleTimeString()}`
+    }
+  }
 };
 </script>
 
@@ -74,10 +90,7 @@ address {
 
 #chat {
   display: table;
-  padding: 15px 50px;
-  border: 3px solid white;
-  border-radius: 5px;
-  margin: 0 auto 10px;
+  margin: 0 auto;
 }
 
 span {

@@ -19,7 +19,7 @@
       </div>
     </div>
     <div v-show="!chatComponent">
-      <div class="toggle-chat">
+      <div class="toggle-chat" @click="toContactPage()">
         <span>No one online to chat to.</span><br><span>Click here for more info on chat operation hours</span>
       </div>
     </div>
@@ -56,6 +56,9 @@ export default {
     }
   },
   methods: {
+    toContactPage() {
+      this.$router.push('contact');
+    },
     toggleChatBox() {
       this.toggleChat = !this.toggleChat;
       if (this.toggleChat === true) {
