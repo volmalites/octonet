@@ -26,6 +26,31 @@
                 <p>Should you prefer a different means of contact, click here for a list of alternative contact methods.</p>
             </section>
             <section>
+                <vue-fontawesome class="icon" icon="desktop" size="12" color="white"></vue-fontawesome>
+                <h1 class="line">Cross Platform Applications</h1>
+                <h2 class="line">Work on any operating system with any device, mobile and desktop</h2>
+                <h3></h3>
+                <br>
+                <p class="line">
+                    There are many different devices running many different operating systems today. Fortunately all of them harnesses the power of the internet, which makes it possible for us to connect them all.
+                </p>
+                <p>
+                    We develop applications that can easily be installed in operating systems such as Windows, Mac OS and Linux. Run our applications on mobile devices such as Android and iOS as well.
+                </p>
+                <p>
+                    This can be done while still having access to an application without having to install it on any device via a web browser.
+                </p>
+                <br>
+                <h2 class="line">Work on custom built devices</h2>
+                <br>
+                <p class="line">
+                    Custom built devices that can run our applications are also possible. For example if device needs to run our applications on boot, or should a device need to be made according to specific requirements such as having a touch screen while being mobile and still more cost effective than todays modern tablets.
+                </p>
+                <p>
+                    With the technologies we utilize this becomes quite easy to achieve today, get in touch with us and find out how we can help you to achieve this.
+                </p>
+            </section>
+            <section>
                 <vue-fontawesome class="icon" icon="shield" size="12" color="white"></vue-fontawesome>
                 <h1 class="line">Licensing, privacy and digital security</h1>
                 <h2 class="line">Licensing</h2>
