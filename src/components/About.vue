@@ -13,9 +13,9 @@
       </section>
       <section>
         <h1>Samantha Prinsloo</h1>
-        <h2>Digital Marketer | Front End Developer</h2>
+        <h2>Digital Marketer | Graphics Designer</h2>
         <p>Samantha has several years of experience in the signage industry and has gained strategical marketing experience thereby. Coupled with this knowledge Samantha has drawn interest towards the world of digital marketing.</p>
-        <p>She has also gained knowledge of front end development and <abbr title="Search Engine Optimisation">SEO</abbr> (Search Engine Optimisation).</p>
+        <p>She has also gained knowledge of front end development, Google Ads and <abbr title="Search Engine Optimisation">SEO</abbr> (Search Engine Optimisation).</p>
         <p>Are you in need of signage? Visit Spectral Signs <a href="https://spectralsigns.co.za" target="_blank">HERE</a></p>
       </section>
     </div>
