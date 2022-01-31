@@ -11,6 +11,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/volmalites/octonet"
+  },
   "dependencies": {
     "core-js": "^3.10.0",
     "font-awesome": "^4.7.0",
